@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="icon" href="imagenes/FLIPZ-ICONO.png" type="image/png">
+    <title>Flip-Z</title>
+</head>
+<body>
+    <!-- Contenedor Principal -->
+    <div id="contenedor-principal">
+        <!--Inicio del juego-->
+        <div id="inicio" class="inicio">
+            <div class="caja">
+                <h1>¡Flip-z!</h1>
+                <p>Un juego de memoria con zombies para divertirte.</p>
+                <button id="boton-inicio" class="boton-inicio">Iniciar Juego</button>
+            </div>
+        </div>
+
+        <!-- Encabezado de la página, contiene el contador de movimientos, cronometro y logo -->
+        <div id="juego" class="pantalla oculta">
+            <header>
+                <div class="info">
+                    <div id="contador">Movimientos: 0</div>
+                    <div id="cronometro">Tiempo: 01:30</div>
+                </div>
+                <div class="nivel">
+                    <p id="nivel-actual">Nivel: 1</p>
+                </div>
+                <img src="imagenes/LOGO-FLIPZ.png" alt="Logo de Flip-Z" class="logo">
+            </header>
+
+            <!-- Contenedor donde se mostrarán las imágenes -->
+            <div id="galeria" class="galeria oculta"></div>
+        </div>
+    </div>
+
+    <!--Píe de página-->
+    <footer>Derechos reservados &copy; 2025 - Flip-Z</footer>
+    
+    <!--Sonidos del juego-->
+    <audio id="voltear-carta" class="sonido" src="sonidos/voltear-carta.mp3" preload="auto"></audio>
+    <audio id="sonido-error" class="sonido" src="sonidos/error-carta.mp3" preload="auto"></audio>
+    <audio id="sonido-correcto" class="sonido" src="sonidos/acierto-carta.mp3" preload="auto"></audio>
+
+    <!-- archivo javascript -->
+    <script src="archivos-js/juego.js"></script>
+</body>
+</html>

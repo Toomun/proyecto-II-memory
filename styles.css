@@ -1,0 +1,445 @@
+body {
+    background-color: rgb(18, 38, 35);
+    margin: 0;
+    width: 100%;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Pantalla de inicio de juego */
+.inicio {
+    width: 100%;
+    height: 100vh;
+    background-image: url(imagenes/inicio-flip-z.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "Bangers", serif;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.oculta {
+    display: none;
+}
+
+.caja {
+    width: 400px;
+    height: 40vh;
+    background-color: #33333394;
+    margin-top: 10%;
+    position: absolute;
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+    border: 2px solid #010f02ec;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    justify-content: center;
+}
+
+h1 {
+    color:#14ee2a;
+    font-size: 2.5rem;
+    font-family: "Bangers", serif;
+}
+
+p {
+    margin: 10px 0 20px 0;
+    color: #ffffffcd;
+}
+
+.boton-inicio {
+    padding: 6px 9px;
+    font-size: 1rem;
+    font-family: "Bangers", serif;
+    color: #ffffffcd;
+    background-color: #c70038e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+.boton-inicio:hover {
+    background-color: #c70038e2;
+    transform: scale(1.2);
+}
+
+/* Contenedor principal para el header y las tarjetas */
+#contenedor-principal {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del header */
+header {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    align-items: center;
+    padding: 20px 30px 20px 30px;
+    margin-bottom: 15px;
+    color: #4CAF50;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px -2px rgba(21, 29, 18, 0.646); 
+}
+
+/* Contenedor de información (contador y cronómetro) */
+header .info {
+    font-family: "Bangers", serif;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-style: normal;
+    gap: 5px;
+}
+
+.nivel {
+    font-family: "Bangers", serif;
+    color: #4CAF50;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+/* Estilos del logo */
+header .logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilos del cronómetro y contador */
+#contador, #cronometro {
+    font-size: 18px;
+}
+
+/* Estilo general para el tablero */
+#galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 100%;
+    padding: 2%;
+}
+
+/* Estilo para cada tarjeta */
+.tarjeta {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+    
+/* Contenedor de las caras de la tarjeta */
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.5s;
+}
+
+/* Estilo del dorso (visible por defecto) */
+.dorso {
+    transform: rotateY(0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo del frente (oculto por defecto) */
+.frente {
+    transform: rotateY(180deg);
+}
+
+/* Volteo de la tarjeta al activarse */
+.tarjeta.volteada .dorso {
+    transform: rotateY(180deg);
+}
+
+.tarjeta.volteada .frente {
+    transform: rotateY(0deg);
+}
+
+/* Estilo para las imágenes dentro de las tarjetas */
+.cara img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Animación para hacer que las tarjetas desaparezcan */
+.desaparecer {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.7s ease, transform 0.9s ease;
+}
+
+/* Animación para la vibración */
+.vibrar {
+    animation: vibrar 0.2s ease;
+}
+
+/* Animación de vibración */
+@keyframes vibrar {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+/* Clase para aplicar la vibración */
+.vibrar {
+    animation: vibrar 0.8s ease;
+}
+
+/* Sonidos del juego */
+.sonido {
+    display: none;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #1b2a23dc;
+    font-family: "Bangers", serif;
+    color: #00fb195d;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -4px 10px -2px rgba(21, 29, 18, 0.646);
+    padding: 30px 0 30px 0;
+    height: auto;
+} 
+
+/* Estilos de la pantalla final */
+.pantalla-final {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(18, 38, 35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.imagen-final {
+    max-width: 250px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10% 40%;
+}
+
+.mensaje-final {
+    font-family: "Bangers", serif;
+    background-color:#1f3128c5;
+    margin-bottom: 10px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mensaje-final p {
+    margin: 10px 0px;
+    color: #14ee2a;
+}
+
+.boton-final, .boton-salir {
+    font-family: "Bangers", serif;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #333;
+    border-radius: 5px;
+    color: #14ee2ac0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.boton-final:hover, .boton-salir:hover {
+    background-color: #14ee2a;
+    color: #333;
+}
+
+.botones-finales {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin-top: 10px; 
+}
+
+
+/* Estilos para pantallas móviles */
+@media (max-width: 550px) {
+
+    .inicio  {
+        background-image: url(imagenes/flip-z-movil.png);
+        background-size: cover;
+        font-family: "Bangers", serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .oculta {
+        display: none;
+    }
+
+    .caja {
+        width: 60%;
+        height: auto;
+        padding: 10px 10px 15px 10px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .boton-inicio {
+        font-size: 0.9rem;
+        padding: 5px 7px;
+        background-color: #c70038e2;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header .logo {
+        margin-top: 10px;
+    }
+
+}
+
+
+/* Estilos para tablets */
+@media (min-width: 551px) and (max-width: 1024px) {
+    .inicio {
+        background-image: url(imagenes/inicio-flip-z.jpg);
+        background-repeat: no-repeat;
+        font-family: "Bangers", serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .oculta {
+        display: none;
+    }
+
+    .caja {
+        height: auto; 
+        margin-top: 10%; 
+        padding: 10px 5px 30px 5px; 
+        width: 50%; 
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 3rem; 
+        text-align: center; 
+    }
+
+    p {
+        font-size: 1rem; 
+        line-height: 1.5; 
+        text-align: center;
+    }
+
+    .boton-inicio {
+        font-size: 1.2rem; 
+        padding: 10px 15px; 
+        border-radius: 5px; 
+        background-color: #c70038e2; 
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+}
+
+/* Estilos para pantallas de escritorio */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .inicio {
+        background-image: url(imagenes/fondo-z.png);
+        background-repeat: no-repeat;
+        font-family: "Bangers", serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .oculta {
+        display: none;
+    }
+
+    .caja {
+        padding: 10px 5px 25px 5px; 
+        width: 400px; 
+        height: auto; 
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .boton-inicio {
+        font-size: 1rem;
+        padding: 10px 15px;
+        border-radius: 8px;
+        background-color: #c70038e2;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    footer {
+        padding: 30px;
+        font-size: 1rem;
+    }
+}
+
